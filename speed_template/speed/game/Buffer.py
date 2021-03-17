@@ -11,9 +11,12 @@ class Buffer(Actor):
         if letter == '*':
             self.set_text('')
         else:
-            text = get_text()
+            text = self.get_text()
             text = text + letter
             self.set_text(text)
+
+    def contains(self, word):
+        return False if buffer.find(word) == -1 else True
 
 
 
