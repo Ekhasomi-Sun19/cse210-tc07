@@ -57,6 +57,7 @@ class Director:
             self._do_outputs()
             sleep(constants.FRAME_LENGTH)
 
+
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
         that means getting the desired direction and moving the snake.
@@ -79,7 +80,7 @@ class Director:
                 word = self._words[i]
                 y = word.get_text()
                 if self._buffer.contains(y):
-                    self._score.add_points(1)
+                    self._score.add_points(word.get_value())
                     self._words.pop(i)
                     worded = self._genie.generate()
                     self._word = Word(worded)
@@ -89,7 +90,7 @@ class Director:
                     self._words.pop(i)
                 if len(self._words) <= 0:
                     self._keep_playing = False
-                    sys.exit()
+                    #sys.exit()
             except IndexError:
                 pass
 
@@ -115,5 +116,5 @@ class Director:
         self._output_service.flush_buffer()
         if len(self._words) <= 0:
             self._keep_playing = False
-            sys.exit()
+            #sys.exit()
 
