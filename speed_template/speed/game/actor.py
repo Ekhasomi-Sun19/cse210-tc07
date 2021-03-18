@@ -16,9 +16,9 @@ class Actor():
     def move_next(self):
         x1 = self.__position[0]
         y1 = self.__position[1]
-        x2 = x1 + self.velocity[0]
-        y2 = y1 + self.velocity[1]
-        self.__position = (x2, y2)
+        x2 = x1 + self.__velocity[0]
+        y2 = y1 + self.__velocity[1]
+        self.set_position(x2, y2)
 
     def get_text(self):
         return self.__text

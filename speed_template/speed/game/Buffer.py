@@ -6,9 +6,10 @@ class Buffer(Actor):
         super().__init__()
         
         self.set_text('')
+        self.set_position(0,20)
 
     def The_Text(self,letter):
-        if letter == '*':
+        if letter == "*":
             self.set_text('')
         else:
             text = self.get_text()
@@ -16,7 +17,13 @@ class Buffer(Actor):
             self.set_text(text)
 
     def contains(self, word):
-        return False if buffer.find(word) == -1 else True
+        x = self.get_text()
+        y = x.find(word)
+        if y == 0:
+            self.set_text('')
+            return True 
+        else: 
+            return False
 
 
 
